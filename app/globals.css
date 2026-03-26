@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-bg: #0a0a0f;
+    --color-surface: #111118;
+    --color-surface-2: #1a1a25;
+    --color-border: #2a2a3a;
+    --color-accent: #7c6af7;
+    --color-accent-2: #f76a8f;
+    --color-text: #e8e8f0;
+    --color-muted: #6b6b85;
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: "Sora", "DM Sans", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-muted);
+  }
+}
+
+/* Page themes for public bio pages */
+.theme-default {
+  --page-bg: #ffffff;
+  --page-text: #1a1a2e;
+  --page-card: #f4f4f8;
+  --page-border: #e0e0ec;
+  --page-accent: #7c6af7;
+}
+
+.theme-dark {
+  --page-bg: #0d0d12;
+  --page-text: #e8e8f0;
+  --page-card: #1a1a25;
+  --page-border: #2a2a3a;
+  --page-accent: #39ff88;
+}
+
+.theme-gradient {
+  --page-bg: #0f0c29;
+  --page-text: #ffffff;
+  --page-card: rgba(255, 255, 255, 0.08);
+  --page-border: rgba(255, 255, 255, 0.12);
+  --page-accent: #f76a8f;
+}
+
+.theme-minimal {
+  --page-bg: #fafafa;
+  --page-text: #222;
+  --page-card: #ffffff;
+  --page-border: #e8e8e8;
+  --page-accent: #222;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(124, 106, 247, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(124, 106, 247, 0.6);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}

@@ -32,9 +32,15 @@ export default async function AnalyticsPage({
   const since = new Date();
   since.setDate(since.getDate() - 14);
 
+  // const { data: clicks } = await supabase
+  //   .from("clicks")
+  //   .select("link_id, clicked_at")
+  //   .eq("page_id", pageId)
+  //   .gte("clicked_at", since.toISOString());
+
   const { data: clicks } = await supabase
     .from("clicks")
-    .select("link_id, clicked_at")
+    .select("link_id, clicked_at, country")
     .eq("page_id", pageId)
     .gte("clicked_at", since.toISOString());
 

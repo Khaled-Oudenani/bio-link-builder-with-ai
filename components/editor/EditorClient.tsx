@@ -165,13 +165,13 @@ export default function EditorClient({ page, initialLinks }: Props) {
     >
       {/* Top bar */}
       <header
-        className="sticky top-0 z-10 flex items-center justify-between px-6 py-3 border-b"
+        className="sticky top-0 z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-0 px-4 sm:px-6 py-3 border-b"
         style={{
           background: "var(--color-surface)",
           borderColor: "var(--color-border)",
         }}
       >
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 w-full sm:w-auto">
           <Link
             href="/dashboard"
             className="p-1.5 rounded-lg transition-all hover:bg-white/5"
@@ -182,11 +182,11 @@ export default function EditorClient({ page, initialLinks }: Props) {
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="bg-transparent text-sm font-semibold outline-none"
+            className="bg-transparent text-sm font-semibold outline-none flex-1 sm:flex-initial"
             style={{ color: "var(--color-text)" }}
           />
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 w-full sm:w-auto flex-wrap">
           <button
             onClick={() => setShowThemes(!showThemes)}
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs transition-all hover:bg-white/5"
@@ -219,10 +219,10 @@ export default function EditorClient({ page, initialLinks }: Props) {
         </div>
       </header>
 
-      <div className="flex flex-1">
+      <div className="flex flex-1 flex-col lg:flex-row">
         {/* Editor panel */}
         <div
-          className={`flex-1 p-8 overflow-y-auto ${showPreview ? "max-w-lg" : ""}`}
+          className={`flex-1 p-4 sm:p-6 lg:p-8 overflow-y-auto ${showPreview ? "lg:max-w-lg" : ""}`}
         >
           {/* Theme picker inline */}
           {showThemes && (
@@ -367,7 +367,7 @@ export default function EditorClient({ page, initialLinks }: Props) {
         {/* Preview panel */}
         {showPreview && (
           <div
-            className="w-80 border-l sticky top-14 h-[calc(100vh-56px)] overflow-y-auto"
+            className="w-full lg:w-80 border-t lg:border-t-0 lg:border-l sticky top-14 lg:top-14 h-auto lg:h-[calc(100vh-56px)] overflow-y-auto p-4 sm:p-6 lg:p-0"
             style={{ borderColor: "var(--color-border)" }}
           >
             <PagePreview data={previewData} />

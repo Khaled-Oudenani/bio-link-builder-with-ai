@@ -56,17 +56,24 @@ export default function RegisterPage() {
 
   return (
     <div
-      className="p-8 rounded-2xl border"
+      className="p-6 sm:p-8 rounded-2xl border max-w-md mx-auto"
       style={{
         background: "var(--color-surface)",
         borderColor: "var(--color-border)",
       }}
     >
       <div className="mb-8">
-        <Link href="/" className="text-2xl font-bold" style={{ color: "var(--color-text)" }}>
+        <Link
+          href="/"
+          className="text-xl sm:text-2xl font-bold"
+          style={{ color: "var(--color-text)" }}
+        >
           Link<span style={{ color: "var(--color-accent)" }}>Forge</span>
         </Link>
-        <p className="mt-2 text-sm" style={{ color: "var(--color-muted)" }}>
+        <p
+          className="mt-2 text-xs sm:text-sm"
+          style={{ color: "var(--color-muted)" }}
+        >
           Create your free account
         </p>
         {/* Step indicator */}
@@ -76,7 +83,8 @@ export default function RegisterPage() {
               key={s}
               className="h-1 flex-1 rounded-full transition-all"
               style={{
-                background: s <= step ? "var(--color-accent)" : "var(--color-border)",
+                background:
+                  s <= step ? "var(--color-accent)" : "var(--color-border)",
               }}
             />
           ))}
@@ -85,7 +93,7 @@ export default function RegisterPage() {
 
       {error && (
         <div
-          className="mb-4 p-3 rounded-lg text-sm"
+          className="mb-4 p-3 rounded-lg text-xs sm:text-sm"
           style={{ background: "rgba(247,106,143,0.1)", color: "#f76a8f" }}
         >
           {error}
@@ -95,7 +103,10 @@ export default function RegisterPage() {
       {step === 1 ? (
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium mb-1.5" style={{ color: "var(--color-muted)" }}>
+            <label
+              className="block text-xs sm:text-sm font-medium mb-1.5"
+              style={{ color: "var(--color-muted)" }}
+            >
               Email
             </label>
             <input
@@ -112,7 +123,10 @@ export default function RegisterPage() {
             />
           </div>
           <div>
-            <label className="block text-sm font-medium mb-1.5" style={{ color: "var(--color-muted)" }}>
+            <label
+              className="block text-xs sm:text-sm font-medium mb-1.5"
+              style={{ color: "var(--color-muted)" }}
+            >
               Password
             </label>
             <input
@@ -130,7 +144,10 @@ export default function RegisterPage() {
           </div>
           <button
             onClick={() => {
-              if (!email || !password) { setError("Please fill all fields"); return; }
+              if (!email || !password) {
+                setError("Please fill all fields");
+                return;
+              }
               setError("");
               setStep(2);
             }}
@@ -143,7 +160,10 @@ export default function RegisterPage() {
       ) : (
         <div className="space-y-4">
           <div>
-            <label className="block text-sm font-medium mb-1.5" style={{ color: "var(--color-muted)" }}>
+            <label
+              className="block text-xs sm:text-sm font-medium mb-1.5"
+              style={{ color: "var(--color-muted)" }}
+            >
               Choose your username
             </label>
             <div
@@ -172,10 +192,17 @@ export default function RegisterPage() {
                 }}
               />
               {username.length >= 3 && isValidUsername(username) && (
-                <CheckCircle2 size={16} className="mr-3" style={{ color: "#39ff88" }} />
+                <CheckCircle2
+                  size={16}
+                  className="mr-3"
+                  style={{ color: "#39ff88" }}
+                />
               )}
             </div>
-            <p className="mt-1.5 text-xs" style={{ color: "var(--color-muted)" }}>
+            <p
+              className="mt-1.5 text-xs"
+              style={{ color: "var(--color-muted)" }}
+            >
               Letters, numbers, _ and - only. This is your public link.
             </p>
           </div>
@@ -199,9 +226,16 @@ export default function RegisterPage() {
         </div>
       )}
 
-      <p className="mt-6 text-center text-sm" style={{ color: "var(--color-muted)" }}>
+      <p
+        className="mt-6 text-center text-sm"
+        style={{ color: "var(--color-muted)" }}
+      >
         Already have an account?{" "}
-        <Link href="/auth/login" className="font-medium" style={{ color: "var(--color-accent)" }}>
+        <Link
+          href="/auth/login"
+          className="font-medium"
+          style={{ color: "var(--color-accent)" }}
+        >
           Sign in
         </Link>
       </p>

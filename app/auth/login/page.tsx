@@ -17,7 +17,10 @@ export default function LoginPage() {
     setLoading(true);
     setError("");
     const supabase = createClient();
-    const { error } = await supabase.auth.signInWithPassword({ email, password });
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
     if (error) {
       setError(error.message);
       setLoading(false);
@@ -29,7 +32,7 @@ export default function LoginPage() {
 
   return (
     <div
-      className="p-8 rounded-2xl border"
+      className="p-6 sm:p-8 rounded-2xl border max-w-md mx-auto"
       style={{
         background: "var(--color-surface)",
         borderColor: "var(--color-border)",
@@ -38,19 +41,22 @@ export default function LoginPage() {
       <div className="mb-8">
         <Link
           href="/"
-          className="text-2xl font-bold"
+          className="text-xl sm:text-2xl font-bold"
           style={{ color: "var(--color-text)" }}
         >
           Link<span style={{ color: "var(--color-accent)" }}>Forge</span>
         </Link>
-        <p className="mt-2 text-sm" style={{ color: "var(--color-muted)" }}>
+        <p
+          className="mt-2 text-xs sm:text-sm"
+          style={{ color: "var(--color-muted)" }}
+        >
           Sign in to your account
         </p>
       </div>
 
       {error && (
         <div
-          className="mb-4 p-3 rounded-lg text-sm"
+          className="mb-4 p-3 rounded-lg text-xs sm:text-sm"
           style={{ background: "rgba(247,106,143,0.1)", color: "#f76a8f" }}
         >
           {error}
@@ -59,7 +65,10 @@ export default function LoginPage() {
 
       <div className="space-y-4">
         <div>
-          <label className="block text-sm font-medium mb-1.5" style={{ color: "var(--color-muted)" }}>
+          <label
+            className="block text-xs sm:text-sm font-medium mb-1.5"
+            style={{ color: "var(--color-muted)" }}
+          >
             Email
           </label>
           <input
@@ -76,7 +85,10 @@ export default function LoginPage() {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium mb-1.5" style={{ color: "var(--color-muted)" }}>
+          <label
+            className="block text-xs sm:text-sm font-medium mb-1.5"
+            style={{ color: "var(--color-muted)" }}
+          >
             Password
           </label>
           <input
@@ -105,7 +117,10 @@ export default function LoginPage() {
         </button>
       </div>
 
-      <p className="mt-6 text-center text-sm" style={{ color: "var(--color-muted)" }}>
+      <p
+        className="mt-6 text-center text-xs sm:text-sm"
+        style={{ color: "var(--color-muted)" }}
+      >
         Don&apos;t have an account?{" "}
         <Link
           href="/auth/register"

@@ -44,8 +44,8 @@ export default function AnalyticsClient({
     }
   }
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="flex items-center gap-3 mb-8">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-3 mb-8">
         <Link
           href="/dashboard"
           className="p-1.5 rounded-lg transition-all hover:bg-white/5"
@@ -55,21 +55,24 @@ export default function AnalyticsClient({
         </Link>
         <div>
           <h1
-            className="text-2xl font-bold"
+            className="text-xl sm:text-2xl font-bold"
             style={{ color: "var(--color-text)" }}
           >
             Analytics
           </h1>
-          <p className="text-sm" style={{ color: "var(--color-muted)" }}>
+          <p
+            className="text-xs sm:text-sm"
+            style={{ color: "var(--color-muted)" }}
+          >
             {pageName} — last 14 days
           </p>
         </div>
       </div>
 
       {/* Stat cards */}
-      <div className="grid grid-cols-2 gap-4 mb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
         <div
-          className="p-6 rounded-2xl border"
+          className="p-4 sm:p-6 rounded-2xl border"
           style={{
             background: "var(--color-surface)",
             borderColor: "var(--color-border)",
@@ -88,14 +91,14 @@ export default function AnalyticsClient({
             </span>
           </div>
           <p
-            className="text-4xl font-extrabold"
+            className="text-2xl sm:text-4xl font-extrabold"
             style={{ color: "var(--color-text)" }}
           >
             {totalClicks}
           </p>
         </div>
         <div
-          className="p-6 rounded-2xl border"
+          className="p-4 sm:p-6 rounded-2xl border"
           style={{
             background: "var(--color-surface)",
             borderColor: "var(--color-border)",
@@ -111,7 +114,7 @@ export default function AnalyticsClient({
             </span>
           </div>
           <p
-            className="text-4xl font-extrabold"
+            className="text-2xl sm:text-4xl font-extrabold"
             style={{ color: "var(--color-text)" }}
           >
             {clicksByDay.length > 0
@@ -123,7 +126,7 @@ export default function AnalyticsClient({
 
       {/* Clicks over time */}
       <div
-        className="p-6 rounded-2xl border mb-6"
+        className="p-4 sm:p-6 rounded-2xl border mb-6"
         style={{
           background: "var(--color-surface)",
           borderColor: "var(--color-border)",
@@ -178,7 +181,7 @@ export default function AnalyticsClient({
       {/* Clicks by link */}
       {clicksByLink.length > 0 && (
         <div
-          className="p-6 rounded-2xl border"
+          className="p-4 sm:p-6 rounded-2xl border"
           style={{
             background: "var(--color-surface)",
             borderColor: "var(--color-border)",
@@ -232,7 +235,7 @@ export default function AnalyticsClient({
 
       {clicksByCountry.length > 0 && (
         <div
-          className="p-6 rounded-2xl border mt-6"
+          className="p-4 sm:p-6 rounded-2xl border mt-6"
           style={{
             background: "var(--color-surface)",
             borderColor: "var(--color-border)",

@@ -24,7 +24,7 @@ export default function PublicPageClient({ page, links }: Props) {
 
   return (
     <div
-      className={`${themeClass} min-h-screen flex flex-col items-center justify-start py-16 px-4`}
+      className={`${themeClass} min-h-screen flex flex-col items-center justify-start py-8 sm:py-12 lg:py-16 px-4 sm:px-6`}
       style={{ background: "var(--page-bg)" }}
     >
       {page.theme === "gradient" && (
@@ -39,27 +39,30 @@ export default function PublicPageClient({ page, links }: Props) {
 
       <div className="w-full max-w-sm relative z-10">
         {/* Avatar & Name */}
-        <div className="flex flex-col items-center text-center mb-8 animate-fade-up">
+        <div className="flex flex-col items-center text-center mb-6 sm:mb-8 animate-fade-up">
           {page.avatar_url ? (
             <Image
               src={page.avatar_url}
               alt={page.name}
               width={96}
               height={96}
-              className="w-24 h-24 rounded-full object-cover mb-4 border-2"
+              className="w-20 sm:w-24 h-20 sm:h-24 rounded-full object-cover mb-3 sm:mb-4 border-2"
               style={{ borderColor: "var(--page-accent)" }}
             />
           ) : (
             <div
-              className="w-24 h-24 rounded-full flex items-center justify-center mb-4 text-3xl font-extrabold"
-              style={{ background: "var(--page-card)", color: "var(--page-accent)" }}
+              className="w-20 sm:w-24 h-20 sm:h-24 rounded-full flex items-center justify-center mb-3 sm:mb-4 text-2xl sm:text-3xl font-extrabold"
+              style={{
+                background: "var(--page-card)",
+                color: "var(--page-accent)",
+              }}
             >
               {page.name.charAt(0).toUpperCase()}
             </div>
           )}
 
           <h1
-            className="text-2xl font-extrabold tracking-tight"
+            className="text-xl sm:text-2xl font-extrabold tracking-tight"
             style={{ color: "var(--page-text)" }}
           >
             {page.name}
@@ -67,7 +70,7 @@ export default function PublicPageClient({ page, links }: Props) {
 
           {page.bio && (
             <p
-              className="mt-2 text-sm leading-relaxed max-w-xs opacity-75"
+              className="mt-2 text-xs sm:text-sm leading-relaxed max-w-xs opacity-75"
               style={{ color: "var(--page-text)" }}
             >
               {page.bio}
@@ -76,12 +79,12 @@ export default function PublicPageClient({ page, links }: Props) {
         </div>
 
         {/* Links */}
-        <div className="space-y-3">
+        <div className="space-y-3 sm:space-y-3">
           {links.map((link, i) => (
             <button
               key={link.id}
               onClick={() => handleLinkClick(link)}
-              className="w-full px-5 py-3.5 rounded-2xl font-semibold text-sm border transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 animate-fade-up"
+              className="w-full px-4 sm:px-5 py-3 sm:py-3.5 rounded-2xl font-semibold text-xs sm:text-sm border transition-all hover:-translate-y-0.5 hover:shadow-lg active:scale-95 animate-fade-up"
               style={{
                 background: "var(--page-card)",
                 color: "var(--page-text)",
@@ -95,7 +98,7 @@ export default function PublicPageClient({ page, links }: Props) {
         </div>
 
         {/* Branding */}
-        <div className="mt-10 text-center">
+        <div className="mt-8 sm:mt-10 text-center">
           <a
             href="/"
             className="text-xs opacity-30 hover:opacity-60 transition-opacity"

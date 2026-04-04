@@ -6,11 +6,11 @@ export default function HomePage() {
     <main className="min-h-screen" style={{ background: "var(--color-bg)" }}>
       {/* Navbar */}
       <nav
-        className="flex items-center justify-between px-8 py-5 border-b"
+        className="flex flex-col sm:flex-row items-center justify-between px-4 sm:px-8 py-4 sm:py-5 border-b gap-3 sm:gap-0"
         style={{ borderColor: "var(--color-border)" }}
       >
         <span
-          className="text-xl font-bold tracking-tight"
+          className="text-lg sm:text-xl font-bold tracking-tight"
           style={{ color: "var(--color-text)" }}
         >
           Link<span style={{ color: "var(--color-accent)" }}>Forge</span>
@@ -18,14 +18,14 @@ export default function HomePage() {
         <div className="flex items-center gap-4">
           <Link
             href="/auth/login"
-            className="text-sm font-medium transition-colors"
+            className="text-xs sm:text-sm font-medium transition-colors"
             style={{ color: "var(--color-muted)" }}
           >
             Sign In
           </Link>
           <Link
             href="/auth/register"
-            className="px-4 py-2 rounded-lg text-sm font-semibold text-white transition-all hover:opacity-90"
+            className="px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold text-white transition-all hover:opacity-90"
             style={{ background: "var(--color-accent)" }}
           >
             Get Started
@@ -34,9 +34,9 @@ export default function HomePage() {
       </nav>
 
       {/* Hero */}
-      <section className="max-w-4xl mx-auto px-8 pt-28 pb-20 text-center">
+      <section className="max-w-4xl mx-auto px-4 sm:px-8 pt-16 sm:pt-28 pb-16 sm:pb-20 text-center">
         <div
-          className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-8 border"
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold mb-6 sm:mb-8 border"
           style={{
             background: "rgba(124,106,247,0.1)",
             borderColor: "rgba(124,106,247,0.3)",
@@ -48,7 +48,7 @@ export default function HomePage() {
         </div>
 
         <h1
-          className="text-6xl font-extrabold leading-tight tracking-tight mb-6"
+          className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-4 sm:mb-6"
           style={{ color: "var(--color-text)" }}
         >
           One link.
@@ -66,7 +66,7 @@ export default function HomePage() {
         </h1>
 
         <p
-          className="text-lg max-w-xl mx-auto mb-10 leading-relaxed"
+          className="text-base sm:text-lg max-w-xl mx-auto mb-8 sm:mb-10 leading-relaxed px-2"
           style={{ color: "var(--color-muted)" }}
         >
           Create a beautiful bio link page in minutes. Let AI write your
@@ -74,10 +74,10 @@ export default function HomePage() {
           actually looks like you.
         </p>
 
-        <div className="flex items-center justify-center gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <Link
             href="/auth/register"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white transition-all hover:opacity-90 hover:scale-105"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white transition-all hover:opacity-90 hover:scale-105 w-full sm:w-auto justify-center"
             style={{
               background:
                 "linear-gradient(135deg, var(--color-accent), var(--color-accent-2))",
@@ -86,16 +86,17 @@ export default function HomePage() {
             Create your page — free
             <ArrowRight size={16} />
           </Link>
-          <span className="text-sm" style={{ color: "var(--color-muted)" }}>
+          <span
+            className="text-xs sm:text-sm"
+            style={{ color: "var(--color-muted)" }}
+          >
             No credit card needed
           </span>
         </div>
       </section>
 
       {/* Features */}
-      <section
-        className="max-w-5xl mx-auto px-8 pb-28 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
-      >
+      <section className="max-w-5xl mx-auto px-4 sm:px-8 pb-16 sm:pb-28 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
         {[
           {
             icon: <Sparkles size={20} />,
@@ -120,7 +121,7 @@ export default function HomePage() {
         ].map((f, i) => (
           <div
             key={i}
-            className="p-6 rounded-2xl border transition-all hover:-translate-y-1"
+            className="p-5 sm:p-6 rounded-2xl border transition-all hover:-translate-y-1"
             style={{
               background: "var(--color-surface)",
               borderColor: "var(--color-border)",
@@ -136,12 +137,15 @@ export default function HomePage() {
               {f.icon}
             </div>
             <h3
-              className="font-semibold mb-2"
+              className="font-semibold mb-2 text-sm sm:text-base"
               style={{ color: "var(--color-text)" }}
             >
               {f.title}
             </h3>
-            <p className="text-sm leading-relaxed" style={{ color: "var(--color-muted)" }}>
+            <p
+              className="text-xs sm:text-sm leading-relaxed"
+              style={{ color: "var(--color-muted)" }}
+            >
               {f.desc}
             </p>
           </div>
@@ -150,7 +154,7 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer
-        className="border-t px-8 py-6 text-center text-sm"
+        className="border-t px-4 sm:px-8 py-4 sm:py-6 text-center text-xs sm:text-sm"
         style={{
           borderColor: "var(--color-border)",
           color: "var(--color-muted)",

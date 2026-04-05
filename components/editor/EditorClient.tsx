@@ -4,6 +4,7 @@ import { useState, useCallback } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { useRouter } from "next/navigation";
 import type { Page, Link as LinkType } from "@/types";
+import AvatarUpload from "./AvatarUpload";
 import {
   DndContext,
   closestCenter,
@@ -279,7 +280,7 @@ export default function EditorClient({ page, initialLinks }: Props) {
               Profile
             </h2>
             <div className="space-y-3">
-              <input
+              {/* <input
                 type="url"
                 value={avatarUrl}
                 onChange={(e) => setAvatarUrl(e.target.value)}
@@ -290,6 +291,10 @@ export default function EditorClient({ page, initialLinks }: Props) {
                   borderColor: "var(--color-border)",
                   color: "var(--color-text)",
                 }}
+              /> */}
+              <AvatarUpload
+                currentUrl={avatarUrl}
+                onUploaded={(url) => setAvatarUrl(url)}
               />
               <textarea
                 value={bio}

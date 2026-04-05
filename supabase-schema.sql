@@ -100,3 +100,20 @@ drop trigger if exists on_auth_user_created on auth.users;
 create trigger on_auth_user_created
   after insert on auth.users
   for each row execute function handle_new_user();
+
+-- ============================================================
+-- Storage — Avatar uploads
+-- ============================================================
+
+insert into storage.buckets (id, name, public)
+values ('avatars', 'avatars', true)
+on conflict (id) do nothing;
+
+create policy "avatars_public_read" on storage.objects
+  for select using (bucket_id = 'avatars');
+
+create policy "avatars_auth_upload" on storage.objects
+  for insert with check (bucket_id = 'avatars' AND auth.role() = 'authenticated');
+
+create policy "avatars_auth_delete" on storage.objects
+  for delete using (bucket_id = 'avatars' AND auth.role() = 'authenticated');

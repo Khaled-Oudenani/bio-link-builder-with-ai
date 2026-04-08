@@ -42,6 +42,40 @@ import { createClient } from "@/lib/supabase/server";
 import { notFound } from "next/navigation";
 import PublicPageClient from "@/components/preview/PublicPageClient";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ username: string }>;
+}): Promise<Metadata> {
+  const { username } = await params;
+  const supabase = await createClient();
+
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("id")
+    .eq("username", username)
+    .single();
+
+  if (!profile) return { title: "Not Found" };
+
+  const { data: page } = await supabase
+    .from("pages")
+    .select("name, bio")
+    .eq("user_id", profile.id)
+    .single();
+
+  return {
+    title: page?.name || username,
+    description: page?.bio || `Check out ${username}'s links on LinkForge.`,
+    openGraph: {
+      title: page?.name || username,
+      description: page?.bio || `Check out ${username}'s links on LinkForge.`,
+      url: `https://bio-link-builder-with-ai.vercel.app/${username}`,
+    },
+  };
+}
 
 export default async function PublicPage({
   params,
